@@ -29,7 +29,6 @@ export async function removeContact(contactId) {
     const contacts = await listContacts();
     const index = contacts.findIndex((item) => item.id === contactId);
     if (index === -1) return null;
-
     const deleteContact = contacts.splice(index, 1);
     await fs.writeFile(contactsPath, JSON.stringify(contacts));
     return deleteContact[0];
@@ -41,12 +40,9 @@ export async function removeContact(contactId) {
 export async function addContact(name, email, phone) {
   try {
     const newContact = { id: nanoid(), name, email, phone };
-
     const contacts = await listContacts();
     contacts.push(newContact);
-
     await fs.writeFile(contactsPath, JSON.stringify(contacts));
-
     return newContact;
   } catch (error) {
     console.log(error.message);
