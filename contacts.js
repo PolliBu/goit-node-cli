@@ -4,13 +4,6 @@ import path from "path";
 
 const contactsPath = path.join("db", "contacts.json");
 
-// console.log(contactsPath);
-
-// async function listContacts() {
-//   const contacts = await fs.readFile(contactsPath);
-//   return JSON.parse(contacts);
-// }
-
 export async function listContacts() {
   try {
     const contacts = await fs.readFile(contactsPath);
@@ -19,10 +12,6 @@ export async function listContacts() {
     console.log(error.message);
   }
 }
-
-// (async () => {
-//   console.log(await listContacts());
-// })();
 
 export async function getContactById(contactId) {
   try {
@@ -34,10 +23,6 @@ export async function getContactById(contactId) {
     return null;
   }
 }
-
-// (async () => {
-//   console.log(await getContactById("rsKkOQUi80UsgVPCcLZZW"));
-// })();
 
 export async function removeContact(contactId) {
   try {
@@ -52,10 +37,6 @@ export async function removeContact(contactId) {
     console.log(error.message);
   }
 }
-
-// (async () => {
-//   console.log(await removeContact("e6ywwRe4jcqxXfCZOj_1e"));
-// })();
 
 export async function addContact(name, email, phone) {
   try {
@@ -72,7 +53,3 @@ export async function addContact(name, email, phone) {
     return null;
   }
 }
-
-// (async () => {
-//   console.log(await addContact("polly", "@ukr", "phone"));
-// })();
