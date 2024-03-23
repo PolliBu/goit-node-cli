@@ -11,7 +11,7 @@ const contactsPath = path.join("db", "contacts.json");
 //   return JSON.parse(contacts);
 // }
 
-async function listContacts() {
+export async function listContacts() {
   try {
     const contacts = await fs.readFile(contactsPath);
     return JSON.parse(contacts);
@@ -24,7 +24,7 @@ async function listContacts() {
 //   console.log(await listContacts());
 // })();
 
-async function getContactById(contactId) {
+export async function getContactById(contactId) {
   try {
     const contacts = await listContacts();
     const contact = contacts.find((contact) => contact.id === contactId);
@@ -57,7 +57,7 @@ export async function removeContact(contactId) {
 //   console.log(await removeContact("e6ywwRe4jcqxXfCZOj_1e"));
 // })();
 
-async function addContact(name, email, phone) {
+export async function addContact(name, email, phone) {
   try {
     const newContact = { id: nanoid(), name, email, phone };
 
